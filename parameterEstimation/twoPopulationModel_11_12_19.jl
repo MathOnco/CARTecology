@@ -272,14 +272,8 @@ else
     global results = Array{Tuple{Array{Float64,1},Array{Float64,1},Array{Float64,1},Float64}}(undef,3*length(memoryFreq))
 end
 
-if ENV["USER"] == "gregorykimmel"
-    directory = "/Users/gregorykimmel/Dropbox/_Projects/01_CART/code/parameterEstimation/twoPopulationModelData/"
-    nLocalRuns = 20
-# On Moffitt cluster or anywhere else we take present directory for storage
-else
-    directory = string(pwd(),"/data/");
-    nLocalRuns = 50
-end
+directory = string(pwd(),"/data/");
+nLocalRuns = 50
 filename = "outputData"
 extension = ".txt"
 
@@ -364,14 +358,3 @@ end
 writedlm(myfile,results)
 
 close(myfile)
-
-# writedlm("/Users/gregorykimmel/Dropbox/01_CART/data/matrixMinVals_IncludeWildtype.txt",minvals,'\t')
-
-# ploton = true
-# if ploton
-
-#     fig = plotsol(CARmodel, bestparams)
-#     filename = string("/Users/gregorykimmel/Dropbox/01_CART/data/testfile25.pdf")
-#     savefig(fig,filename)
-
-# end

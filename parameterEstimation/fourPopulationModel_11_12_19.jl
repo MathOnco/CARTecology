@@ -299,15 +299,8 @@ global maxTumorSize = 2.0*B0
 # Update at time points 30,90,180
 TumorDataVec = ([CR;PD;PD],[PD;PD;PD],[CR;CR;CR])
 
-# On home computer
-if ENV["USER"] == "gregorykimmel"
-    directory = "/Users/gregorykimmel/Dropbox/_Projects/01_CART/code/parameterEstimation/fourPopulationModelData/"
-    nLocalRuns = 20
-# On Moffitt cluster or anywhere else we take present directory for storage
-else
-    directory = string(pwd(),"/data/");
-    nLocalRuns = 50
-end
+directory = string(pwd(),"/data/");
+nLocalRuns = 50
 filename = "outputData"
 extension = ".txt"
 
@@ -404,7 +397,7 @@ ploton = true
 if ploton
 
     fig = plotsol(CARmodel, bestparams)
-    filename = string("/Users/gregorykimmel/Dropbox/01_CART/data/testfile25.pdf")
+    filename = string(directory,"savedFig.pdf")
     savefig(fig,filename)
 
 end
