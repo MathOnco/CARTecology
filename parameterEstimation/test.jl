@@ -1,1 +1,0 @@
-println("Program name is ", PROGRAM_FILE)
